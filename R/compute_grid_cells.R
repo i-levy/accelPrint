@@ -73,8 +73,8 @@ compute_grid_cells = function(data, lags, cell_size = 0.25, max_vm = 3, sample_r
   }
 
   # add seconds column
-  data <- data %>%
-    dplyr::mutate(second = lubridate::floor_date(time, unit = "seconds"))
+  #data <- data %>%
+  #  dplyr::mutate(second = lubridate::floor_date(time, unit = "seconds"))
 
 
   # infer sample rate if not provided
