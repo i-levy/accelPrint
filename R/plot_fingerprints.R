@@ -60,8 +60,8 @@ plot_fingerprints = function(data, lags, sample_rate = NULL, max_vm = 3){
   }
 
   # add seconds column
-  data <- data %>%
-    dplyr::mutate(second = lubridate::floor_date(time, unit = "seconds"))
+  #data <- data %>%
+  #  dplyr::mutate(second = lubridate::floor_date(time, unit = "seconds"))
 
 
   # infer sample rate if not provided
