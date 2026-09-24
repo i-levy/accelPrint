@@ -105,7 +105,7 @@ plot_fingerprints = function(data, lags, sample_rate = NULL, max_vm = 3){
       .x = lags_samples,
       .f = function(df, lag) {
         df %>%
-          dplyr::mutate(vm = sqrt(x ^ 2 + y ^ 2 + z ^ 2)) %>%
+          #dplyr::mutate(vm = sqrt(x ^ 2 + y ^ 2 + z ^ 2)) %>%
           dplyr::group_by(second) %>%
           dplyr::mutate(lag_vm = dplyr::lag(vm, n = lag)) %>%
           dplyr::ungroup() %>%
