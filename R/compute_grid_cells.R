@@ -51,7 +51,15 @@ compute_grid_cells = function(data, lags, cell_size = 0.25, min_vm = NULL, max_v
       max_vm
     ))
   }
-
+  # check that the min VM is a multiple of the grid cell size, if not, adjust max VM
+  if (min_vm %% cell_size != 0) {
+    multiples = ceiling(min_vm / cell_size)
+    min_vm = cell_size * multiples
+    warning(sprintf(
+      "Min VM is not a multiple of the grid cell size. Adjusted min VM to: %s",
+      min_vm
+    ))
+  }
   # check that lags are less than 1
   assertthat::assert_that(all(lags < 1) & all(lags > 0), msg = "Lags must be positive and less than 1 second")
 
