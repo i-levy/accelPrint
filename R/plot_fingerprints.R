@@ -66,18 +66,18 @@ plot_fingerprints = function(data, lags, sample_rate = NULL, max_vm = 3){
 
   # infer sample rate if not provided
   # see if there's an attribute (if gt3x file)
-  if(is.null(sample_rate)) {
-    obs_per_sec =
-      data %>%
-      dplyr::mutate(second = lubridate::floor_date(time, unit = "seconds")) %>%
-      dplyr::count(second) %>%
-      dplyr::pull(n)
-    sample_rate = Mode(obs_per_sec)
-    message(sprintf(
-      "Sample rate not provided. Inferred sample rate: %s Hz",
-      sample_rate
-    ))
-  }
+  #if(is.null(sample_rate)) {
+  #  obs_per_sec =
+  #    data %>%
+  #    dplyr::mutate(second = lubridate::floor_date(time, unit = "seconds")) %>%
+  #    dplyr::count(second) %>%
+  #    dplyr::pull(n)
+  #  sample_rate = Mode(obs_per_sec)
+  #  message(sprintf(
+  #    "Sample rate not provided. Inferred sample rate: %s Hz",
+  #    sample_rate
+  #  ))
+  #}
 
   # check that sample rate is integer
   assertthat::assert_that(sample_rate%%1 == 0, msg = "Sample rate must be an integer.")
